@@ -1,55 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_utils.c                                         :+:      :+:    :+:   */
+/*   ft_utils_client.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmanolis <tmanolis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/08 16:36:53 by tmanolis          #+#    #+#             */
-/*   Updated: 2021/09/08 17:00:09 by tmanolis         ###   ########.fr       */
+/*   Created: 2021/09/16 14:16:22 by tmanolis          #+#    #+#             */
+/*   Updated: 2021/09/16 14:18:22 by tmanolis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-size_t	ft_strlen(const char *str)
+int	ft_isdigit(int c)
+{
+	if (c >= '0' && c <= '9')
+		return (1);
+	else
+		return (0);
+}
+
+int	ft_atoi(const char *str)
 {
 	int	i;
+	int	j;
+	int	value;
 
 	i = 0;
-	while (str[i] != '\0')
+	value = 0;
+	while ((str[i] > 8 && str[i] < 14) || str[i] == 32)
 		i++;
-	return (i);
-}
-
-void	ft_putchar_fd(char c, int fd)
-{
-	write(fd, &c, 1);
-}
-
-void	ft_putstr_fd(char *s, int fd)
-{
-	size_t	len;
-
-	if (s)
+	if (str[i] == '-' || str[i] == '+')
 	{
-		len = ft_strlen(s);
-		write(fd, s, len);
+		if (str[i] == '-')
+			j = 1;
+		i++;
 	}
-}
-
-void	ft_putnbr_fd(int n, int fd)
-{
-	unsigned int	nb;
-
-	if (n < 0)
+	while (ft_isdigit(str[i]))
 	{
-		nb = n * -1;
-		ft_putchar_fd('-', fd);
+		value = value * 10 + (str[i] - 48);
+		i++;
 	}
+	if (j == 1)
+		return (value * -1);
 	else
-		nb = n;
-	if (nb > 9)
-		ft_putnbr_fd(nb / 10, fd);
-	ft_putchar_fd((nb % 10 + 48), fd);
+		return (value);
 }
