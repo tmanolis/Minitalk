@@ -6,7 +6,7 @@
 /*   By: tmanolis <tmanolis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 17:16:26 by tmanolis          #+#    #+#             */
-/*   Updated: 2021/09/16 14:19:49 by tmanolis         ###   ########.fr       */
+/*   Updated: 2021/09/16 16:48:31 by tmanolis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(int argc, char **argv)
 	if (argc > 1)
 	{
 		pid = ft_atoi(argv[1]);
-		kill(pid, SIGUSR1);
+		kill(pid, SIGUSR2);
 	}
 	return (0);
 }
