@@ -6,7 +6,7 @@
 /*   By: tmanolis <tmanolis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 17:16:26 by tmanolis          #+#    #+#             */
-/*   Updated: 2021/09/17 15:23:43 by tmanolis         ###   ########.fr       */
+/*   Updated: 2021/09/17 15:46:16 by tmanolis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,13 @@ void	convert_char_to_bin(char c, pid_t pid)
 		if (c & (1 << i))
 		{
 			kill(pid, SIGUSR1);
-			usleep(TIME);
 		}
 		else
 		{
 			kill(pid, SIGUSR2);
-			usleep(TIME);
-		}	
+		}
 		i--;
+		usleep(TIME);
 	}
 }
 
