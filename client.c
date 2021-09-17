@@ -12,7 +12,7 @@
 
 #include "minitalk.h"
 
-void	convert_char_to_bin(char c, pid_t pid)
+void	convert_char_to_bits(char c, pid_t pid)
 {
 	int i;
 
@@ -46,7 +46,7 @@ int		main(int argc, char **argv)
 	{
 		while(argv[2][i] != '\0')
 		{
-			convert_char_to_bin(argv[2][i], pid);
+			convert_char_to_bits(argv[2][i], pid);
 			i++;
 		}
 	}

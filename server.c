@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "minitalk.h"
-#include <stdio.h>
 
 void	print_pid(void)
 {
@@ -28,25 +27,55 @@ void	print_pid(void)
 		ft_putstr_fd("Couldn't get the PID\n", 2);
 }
 
-void ft_handler(int signum)
+void	convert_bits_to_char(char *str)
 {
-    if (signum == SIGUSR1)
-        printf("Received 1\n");
-	else if (signum == SIGUSR2)
-		printf("Received 0\n");
+	int nb_binary;
+
+
+}
+
+void	ft_handler(int signum)
+{
+	size_t	i;
+	int 	*stock;
+
+	i = 0;
+	stock = (char *)malloc(sizeof(char) * (8 + 1));
+	if (!stock)
+	{
+		ft_putstr_fd("ERROR\n", 2);
+		exit(1);
+	}
+	while (i < 8)
+	{
+		if (signum == SIGUSR1)
+			stock[i] = 1;
+		else if (signum == SIGUSR2)
+			stock[i] = 0;
+		i++;
+	}
+	convert_bits_to_char(stock);
 }
 
 int	main(void)
 {
 	struct	sigaction sa;
+	int		i;
 
 	sa.sa_handler = ft_handler;
 	sa.sa_flags = 0;
+	i = 0;
 	print_pid();
 	while (1)
 	{
 		sigaction(SIGUSR1, &sa, NULL);
 		sigaction(SIGUSR2, &sa, NULL);
+		// i++;
+		// if (i == 7)
+		// {
+		// 	i = 0;
+		// 	ft_putstr_fd("\n", 1);
+		// }
 	}
 	return (0);
 }
