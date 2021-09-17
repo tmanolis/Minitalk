@@ -53,12 +53,3 @@ void	ft_putnbr_fd(int n, int fd)
 		ft_putnbr_fd(nb / 10, fd);
 	ft_putchar_fd((nb % 10 + 48), fd);
 }
-
-void	putnb_base(unsigned long int nb, char *base)
-{
-	if (nb > 9)
-	{
-		putnb_base((nb / 10), base);
-	}
-	ft_putchar_fd(base[nb % 10] + 48, 1);
-}

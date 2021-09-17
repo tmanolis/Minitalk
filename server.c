@@ -37,15 +37,10 @@ void	convert_bits_to_char(char *str)
 void	ft_handler(int signum)
 {
 	size_t	i;
-	int 	*stock;
+	char 	c;
 
 	i = 0;
-	stock = (char *)malloc(sizeof(char) * (8 + 1));
-	if (!stock)
-	{
-		ft_putstr_fd("ERROR\n", 2);
-		exit(1);
-	}
+	// result |= (num[i] == '1') << (7 - i);
 	while (i < 8)
 	{
 		if (signum == SIGUSR1)
@@ -54,28 +49,20 @@ void	ft_handler(int signum)
 			stock[i] = 0;
 		i++;
 	}
-	convert_bits_to_char(stock);
+	c
 }
 
 int	main(void)
 {
 	struct	sigaction sa;
-	int		i;
 
 	sa.sa_handler = ft_handler;
 	sa.sa_flags = 0;
-	i = 0;
 	print_pid();
 	while (1)
 	{
 		sigaction(SIGUSR1, &sa, NULL);
 		sigaction(SIGUSR2, &sa, NULL);
-		// i++;
-		// if (i == 7)
-		// {
-		// 	i = 0;
-		// 	ft_putstr_fd("\n", 1);
-		// }
 	}
 	return (0);
 }
