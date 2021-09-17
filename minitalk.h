@@ -6,7 +6,7 @@
 /*   By: tmanolis <tmanolis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 15:41:26 by tmanolis          #+#    #+#             */
-/*   Updated: 2021/09/16 15:32:37 by tmanolis         ###   ########.fr       */
+/*   Updated: 2021/09/17 15:19:49 by tmanolis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,14 @@
 # include <sys/types.h>
 # include <unistd.h>
 # include <signal.h> 
+
+# ifdef __MACH__
+#  define TIME 100
+# elif __APPLE__
+#	define TIME 100
+# elif __linux__
+#  define TIME 400
+# endif
 
 size_t	ft_strlen(const char *str);
 void	ft_putchar_fd(char c, int fd);
