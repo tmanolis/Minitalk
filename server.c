@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "minitalk.h"
-#include <stdio.h>
 
 static size_t	len;
 
@@ -32,18 +31,18 @@ void	print_pid(void)
 
 void	convert_bits_to_char(char *stock)
 {
-	int		i;
-	char	c;
+	int				i;
+	unsigned char	c;
+	unsigned char	temp;
 
 	i = 7;
 	c = 0;
 	while(i >= 0)
 	{
-		// ft_putstr_fd("je suis passée dans la boucle\n", 1);
-		unsigned char temp = 1;
+		temp = 1;
 		if (stock[i] == '1')
 		{
-				temp <<= (7-i);
+				temp <<= (7 - i);
 				c |= temp;
 		}
 		i--;
@@ -63,17 +62,15 @@ void	ft_handler(int signum)
 	else if (signum == SIGUSR2)
 		stock[len] = '0';
 	len++;
-	// printf("len : %zu\n", len);
 	if (len == 8)
 	{
 		stock[len] = '\0';
-		// printf("stock : %s\n", stock);
 		convert_bits_to_char(stock);
 		len = 0;
 	}
 }
 
-int	main(void)
+int		main(void)
 {
 	struct	sigaction sa;
 
@@ -83,8 +80,10 @@ int	main(void)
 	print_pid();
 	while (1)
 	{
-		sigaction(SIGUSR1, &sa, NULL);
-		sigaction(SIGUSR2, &sa, NULL);
+		if (sigaction(SIGUSR1, &sa, NULL) == -1)
+			ft_putstr_fd("Couldn't get the signal\n", 2);
+		if (sigaction(SIGUSR2, &sa, NULL) == -1)
+			ft_putstr_fd("Couldn't get the signal\n", 2);
 		pause();
 	}
 	return (0);

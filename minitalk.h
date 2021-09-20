@@ -19,20 +19,21 @@
 # include <signal.h> 
 
 # ifdef __MACH__
-#  define TIME 200
+#  define TIME 150
 # elif __APPLE__
 #	define TIME 200
 # elif __linux__
 #  define TIME 400
 # endif
 
+// UTILS SERVER
 size_t	ft_strlen(const char *str);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+char	*ft_initialize(void);
+// UTILS CLIENT
 int		ft_isdigit(int c);
 int		ft_atoi(const char *str);
-char	*ft_initialize(void);
-pid_t	getpid(void);
 
 #endif
