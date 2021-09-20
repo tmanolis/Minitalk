@@ -38,17 +38,16 @@ int		main(int argc, char **argv)
 	pid_t pid;
 
 	i = 0;
-	if (argc > 1)
-	{
-		pid = ft_atoi(argv[1]);
-	}
 	if (argc == 3)
 	{
+		pid = ft_atoi(argv[1]);
 		while(argv[2][i] != '\0')
 		{
 			convert_char_to_bits(argv[2][i], pid);
 			i++;
 		}
 	}
+	else
+		write(2, "usage: ./client <pid> <string_to_send>\n", 38);
 	return (0);
 }

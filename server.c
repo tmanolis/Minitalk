@@ -11,6 +11,9 @@
 /* ************************************************************************** */
 
 #include "minitalk.h"
+#include <stdio.h>
+
+static size_t	len;
 
 void	print_pid(void)
 {
@@ -27,35 +30,54 @@ void	print_pid(void)
 		ft_putstr_fd("Couldn't get the PID\n", 2);
 }
 
-void	convert_bits_to_char(char *str)
+void	convert_bits_to_char(char *stock)
 {
-	int nb_binary;
+	int		i;
+	char	c;
 
-
+	i = 7;
+	c = 0;
+	while(i >= 0)
+	{
+		// ft_putstr_fd("je suis passée dans la boucle\n", 1);
+		unsigned char temp = 1;
+		if (stock[i] == '1')
+		{
+				temp <<= (7-i);
+				c |= temp;
+		}
+		i--;
+	}
+	free(stock);
+	ft_putchar_fd(c, 1);
 }
 
 void	ft_handler(int signum)
 {
-	size_t	i;
-	char 	c;
+	char	*stock;
 
-	i = 0;
-	// result |= (num[i] == '1') << (7 - i);
-	while (i < 8)
+	if (len == 0)
+		stock = ft_initialize();
+	if (signum == SIGUSR1)
+		stock[len] = '1';
+	else if (signum == SIGUSR2)
+		stock[len] = '0';
+	len++;
+	// printf("len : %zu\n", len);
+	if (len == 8)
 	{
-		if (signum == SIGUSR1)
-			stock[i] = 1;
-		else if (signum == SIGUSR2)
-			stock[i] = 0;
-		i++;
+		stock[len] = '\0';
+		// printf("stock : %s\n", stock);
+		convert_bits_to_char(stock);
+		len = 0;
 	}
-	c
 }
 
 int	main(void)
 {
 	struct	sigaction sa;
 
+	len = 0;
 	sa.sa_handler = ft_handler;
 	sa.sa_flags = 0;
 	print_pid();
@@ -63,6 +85,7 @@ int	main(void)
 	{
 		sigaction(SIGUSR1, &sa, NULL);
 		sigaction(SIGUSR2, &sa, NULL);
+		pause();
 	}
 	return (0);
 }

@@ -53,3 +53,16 @@ void	ft_putnbr_fd(int n, int fd)
 		ft_putnbr_fd(nb / 10, fd);
 	ft_putchar_fd((nb % 10 + 48), fd);
 }
+
+char	*ft_initialize(void)
+{
+	char	*str;
+
+	str = (char *)malloc(sizeof(char) * (8 + 1));
+	if (!str)
+	{
+		ft_putstr_fd("ERROR\n", 2);
+		exit(1);
+	}
+	return (str);
+}

@@ -19,9 +19,9 @@
 # include <signal.h> 
 
 # ifdef __MACH__
-#  define TIME 1000
+#  define TIME 200
 # elif __APPLE__
-#	define TIME 1000
+#	define TIME 200
 # elif __linux__
 #  define TIME 400
 # endif
@@ -32,6 +32,7 @@ void	ft_putstr_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 int		ft_isdigit(int c);
 int		ft_atoi(const char *str);
+char	*ft_initialize(void);
 pid_t	getpid(void);
 
 #endif
