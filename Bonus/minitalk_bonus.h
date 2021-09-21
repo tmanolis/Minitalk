@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   minitalk_bonus.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmanolis <tmanolis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 15:41:26 by tmanolis          #+#    #+#             */
-/*   Updated: 2021/09/17 15:19:49 by tmanolis         ###   ########.fr       */
+/*   Updated: 2021/09/21 14:31:58 by tmanolis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#ifndef MINITALK_BONUS_H
+# define MINITALK_BONUS_H
 
 # include <sys/types.h>
 # include <unistd.h>
@@ -21,7 +21,7 @@
 # ifdef __MACH__
 #  define TIME 150
 # elif __APPLE__
-#	define TIME 200
+#  define TIME 200
 # elif __linux__
 #  define TIME 400
 # endif
