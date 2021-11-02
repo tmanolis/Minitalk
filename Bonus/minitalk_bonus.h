@@ -6,7 +6,7 @@
 /*   By: tmanolis <tmanolis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 15:41:26 by tmanolis          #+#    #+#             */
-/*   Updated: 2021/09/21 14:31:58 by tmanolis         ###   ########.fr       */
+/*   Updated: 2021/11/02 14:31:57 by tmanolis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@
 # include <signal.h> 
 
 # ifdef __MACH__
-#  define TIME 150
+#  define TIME 100
 # elif __APPLE__
-#  define TIME 200
+#  define TIME 100
 # elif __linux__
 #  define TIME 400
 # endif

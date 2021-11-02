@@ -6,11 +6,11 @@
 /*   By: tmanolis <tmanolis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 14:07:05 by tmanolis          #+#    #+#             */
-/*   Updated: 2021/09/21 14:09:33 by tmanolis         ###   ########.fr       */
+/*   Updated: 2021/11/02 14:04:20 by tmanolis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "minitalk_bonus.h"
 
 void	convert_char_to_bits(char c, pid_t pid)
 {

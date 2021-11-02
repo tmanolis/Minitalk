@@ -6,11 +6,11 @@
 /*   By: tmanolis <tmanolis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 16:36:53 by tmanolis          #+#    #+#             */
-/*   Updated: 2021/09/21 14:07:54 by tmanolis         ###   ########.fr       */
+/*   Updated: 2021/11/02 14:04:26 by tmanolis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "minitalk_bonus.h"
 
 size_t	ft_strlen(const char *str)
 {

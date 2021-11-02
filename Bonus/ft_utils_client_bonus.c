@@ -6,11 +6,11 @@
 /*   By: tmanolis <tmanolis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/16 14:16:22 by tmanolis          #+#    #+#             */
-/*   Updated: 2021/09/21 14:08:07 by tmanolis         ###   ########.fr       */
+/*   Updated: 2021/11/02 14:04:23 by tmanolis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "minitalk_bonus.h"
 
 int	ft_isdigit(int c)
 {
